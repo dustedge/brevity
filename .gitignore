@@ -1,0 +1,58 @@
+# Composer
+vendor/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# PHP Runtime 
+*.cache
+*.lock
+*.log
+*.tmp
+
+# Gulp/Webpack build files
+dist/
+build/
+
+# Sass build files
+*.css.map
+*.css
+
+# IDE config
+.idea/
+.vscode/
+
+# Temp & cache
+*.bak
+*.swp
+*.tmp
+
+# OpenServer config
+OSPanel/
+OpenServer/settings/
+
+# Docker
+docker-compose.override.yml
+docker-compose.yml
+.env
+
+# MacOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Cache
+.cache/
