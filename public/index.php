@@ -29,7 +29,7 @@
         <strong>Ivan Navi</strong> <span>@ivannavi123</span> <span>21 Oct</span>
         <br />
         <p>
-        The purpose of this world is to fulfill my needs. If you are gay, you are gay. Join Bebra Incorporated today.
+        The big brown fox jumped over the lazy dog. Join Bebra Incorporated today.
         </p>
       </div>
     </div>
@@ -37,10 +37,10 @@
     <div class="ds-tweet-container">
       <img class="ds-avatar" src="icon-large.png" alt="avatar" />
       <div class="ds-tweet-header">
-        <strong>The Gay Man</strong> <span>@gayzerg</span> <span>20 Oct</span>
+        <strong>TheHeyaya</strong> <span>@hezerg</span> <span>20 Oct</span>
         <br />
         <p>
-        Global gay consortium is tomorrow! See yall there. It's gonna be fire 🔥🔥🔥🔥🔥🔥 
+        It's gonna be fire 🔥🔥🔥🔥🔥🔥 
         </p>
       </div>
     </div>
@@ -51,11 +51,8 @@
         <strong>Fireboys</strong> <span>@ilosass</span> <span>19 Oct</span>
         <br />
         <p>
-        Cock and ball torture (CBT) is a sexual activity involving application of pain or constriction to the male genitals. 
-        This may involve directly painful activities, such as genital piercing, wax play, genital spanking, squeezing, ball-busting, 
-        genital flogging, urethral play, tickle torture, erotic electrostimulation or even kicking. 
-        The recipient of such activities may receive direct physical pleasure via masochism, or knowledge that the play is 
-        pleasing to a sadistic dominant.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus non lorem maximus, a auctor ligula gravida. Proin lacus felis, bibendum nec iaculis vitae, elementum id dui. Vestibulum dolor ante, lacinia eget sem sed, fringilla congue mi. Etiam elit ante, pulvinar eget tortor consectetur, ullamcorper hendrerit massa. Vestibulum luctus enim a commodo mattis. In facilisis posuere mauris quis feugiat. Curabitur felis quam, porttitor ultricies blandit in, rhoncus nec dolor. Nullam tempus pharetra nunc, ut interdum lectus sodales eget. Maecenas id tincidunt justo.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus non lorem maximus, a auctor ligula gravida. Proin lacus felis, bibendum nec iaculis vitae, elementum id dui. Vestibulum dolor ante, lacinia eget sem sed, fringilla congue mi. Etiam elit ante, pulvinar eget tortor consectetur, ullamcorper hendrerit massa. Vestibulum luctus enim a commodo mattis. In facilisis posuere mauris quis feugiat. Curabitur felis quam, porttitor ultricies blandit in, rhoncus nec dolor. Nullam tempus pharetra nunc, ut interdum lectus sodales eget. Maecenas id tincidunt justo.
         </p>
       </div>
     </div>
@@ -66,7 +63,7 @@
         <strong>Gorevandal</strong> <span>@grv_xxx</span> <span>18 Oct</span>
         <br />
         <p>
-        Мой батя ебашит вообще адовые блюда. Ну такой вот примерно рецепт усредненный, потому что вариаций масса. Берется суп, он не греется, греть - это не про моего батю. Он берет это суп, вываливает его на сковороду и начинает жарить. Добавляет в него огромное количество лука, чеснока, перца черного и красного МУКИ! для вязкости, томатная паста сверху. Все это жарится до дыма. Потом снимается с огня и остужается на балконе. Потом батя заносит и щедро полив майонезом начинает есть. При этом ест со сковороды шкрябая по ней ложкой. Ест и приговаривает полушепотом ух бля. При этом у него на лбу аж пот выступает. Любезно мне иногда предлагает, но я отказываюсь. Надо ли говорить о том какой дичайший пердеж потом? Вонища такая, что обои от стен отклеиваются.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus non lorem maximus, a auctor ligula gravida. Proin lacus felis, bibendum nec iaculis vitae, elementum id dui. Vestibulum dolor ante, lacinia eget sem sed, fringilla congue mi. Etiam elit ante, pulvinar eget tortor consectetur, ullamcorper hendrerit massa. Vestibulum luctus enim a commodo mattis. In facilisis posuere mauris quis feugiat. Curabitur felis quam, porttitor ultricies blandit in, rhoncus nec dolor. Nullam tempus pharetra nunc, ut interdum lectus sodales eget. Maecenas id tincidunt justo.
         </p>
       </div>
     </div>
