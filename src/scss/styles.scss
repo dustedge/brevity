@@ -1,0 +1,162 @@
+/* TEST! */
+
+@use 'sass:math';
+
+$maintextcolor: white;
+$contexttextcolor: grey;
+$importanttextcolor: rgb(5, 198, 127);
+$accentcolor: rgb(5, 198, 127);
+$accentcolorbright: rgb(50, 240, 140);
+$textpadding: 2vh;
+$backgroundcolor: black;
+$uicolor: #181a1b;
+$uicoloralt: #272b2c;
+$importantfont: "Ubuntu", "Lucida Console", "monospace";
+$basefont: "Lora", "Lucida Console", "monospace";
+$uiborderradius: 15px;
+$sidebarwidth: 19%;
+$feedwidth: 100% - ($sidebarwidth*2);
+$uimargin: 1vh;
+$uivh: 94vh;
+$avatarsize: 8vh;
+
+$buttonpadding: 10px;
+
+body {
+    background-color: $backgroundcolor;
+    color: $maintextcolor;
+    font-family: $basefont;
+    overflow: hidden;
+    height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: $importantfont;
+    color: $importanttextcolor;
+}
+
+strong {
+    font-family: $importantfont;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.ds-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: left;
+}
+
+.ds-sidebar-left, .ds-sidebar-right, .ds-feed {
+    background-color: $uicolor;
+    border-radius: $uiborderradius;
+    margin: $uimargin;
+}
+
+.ds-sidebar-left, .ds-sidebar-right {
+    width: $sidebarwidth;
+    height: $uivh;
+    padding: 10px;
+}
+
+.ds-feed {
+    width: $feedwidth;
+    height: $uivh + 2vh;
+    overflow-y: auto;
+    border-radius: 0%;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.ds-logo-container {
+    background-color: $accentcolor;
+    color: $maintextcolor;
+    border-radius: $uiborderradius;
+    user-select: none;
+}
+
+.ds-logo-container:hover {
+    background-color: $accentcolorbright;
+    cursor: pointer;
+}
+
+.ds-logo-container:active {
+    background-color: $accentcolor;
+    cursor: pointer;
+}
+
+.ds-nav-container {
+    border-width: 2px;
+    border-style: dotted;
+    border-color: $accentcolor;
+    padding: $buttonpadding;
+    border-radius: $uiborderradius;
+    
+}
+
+.ds-nav-button {
+    display: block;
+    background-color: $uicoloralt;
+    width: 100%;
+    height: auto;
+    padding: $buttonpadding;
+    color: $maintextcolor;
+    font-family: $importantfont;
+    border-radius: $uiborderradius;
+    border: none;
+    font-weight: bold;
+}
+.ds-nav-button:hover {
+    background-color: $accentcolor;
+}
+
+.ds-nav-button:active {
+    background-color: $accentcolorbright;
+}
+
+.flexitem {
+    display: flex;
+}
+
+.ds-tweet-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 98%;
+    margin: $uimargin;
+    padding: $textpadding;
+    background-color: #272b2c;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: $accentcolor;
+}
+
+.ds-tweet-header {
+    font-family: $importantfont;
+}
+
+.ds-tweet-header span {
+    color: $contexttextcolor;
+    margin-left: 5vh;
+}
+
+.ds-tweet-header p {
+    line-height: 2;
+}
+
+.ds-avatar {
+    max-width: $avatarsize;
+    max-height: $avatarsize;
+    width: $avatarsize;
+    height: $avatarsize;
+    border-radius: 50%;
+    margin-right: 5vh;
+    object-fit: cover;
+}
