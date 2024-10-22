@@ -12,14 +12,16 @@ $backgroundcolor: black;
 $uicolor: #181a1b;
 $uicoloralt: #272b2c;
 $importantfont: "Ubuntu", "Lucida Console", "monospace";
-$basefont: "Lora", "Lucida Console", "monospace";
+$basefont: "Ubuntu", "Lucida Console", "monospace";
 $uiborderradius: 15px;
 $sidebarwidth: 19%;
 $feedwidth: 100% - ($sidebarwidth*2);
 $uimargin: 1vh;
 $uivh: 94vh;
 $avatarsize: 8vh;
+$buttonmargin: 1vh 0;
 
+$buttonheight: 10vh;
 $buttonpadding: 10px;
 
 body {
@@ -30,6 +32,20 @@ body {
     height: 100vh;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: $uicoloralt;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: $accentcolor;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: $accentcolorbright;
+}
+
 h1, h2, h3 {
     font-family: $importantfont;
     color: $importanttextcolor;
@@ -37,6 +53,10 @@ h1, h2, h3 {
 
 strong {
     font-family: $importantfont;
+}
+
+a {
+    color:#3391ff;
 }
 
 .fixed {
@@ -51,6 +71,8 @@ strong {
 }
 
 .ds-sidebar-left, .ds-sidebar-right, .ds-feed {
+    display: flex;
+    flex-direction: column;
     background-color: $uicolor;
     border-radius: $uiborderradius;
     margin: $uimargin;
@@ -73,12 +95,35 @@ strong {
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    padding-top: 1vh;
 }
+
+.flex-container-column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding-top: 1vh;
+    height: $uivh - 2vh;
+}
+
+.flex-container-centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1vh;
+    height: $uivh;
+}
+
 
 .ds-logo-container {
     background-color: $accentcolor;
     color: $maintextcolor;
     border-radius: $uiborderradius;
+    padding: $textpadding;
+    margin: $uimargin;
     user-select: none;
 }
 
@@ -93,19 +138,33 @@ strong {
 }
 
 .ds-nav-container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    height: 80vh;
     border-width: 2px;
-    border-style: dotted;
+    border-style: dashed;
     border-color: $accentcolor;
     padding: $buttonpadding;
     border-radius: $uiborderradius;
     
 }
 
-.ds-nav-button {
+.ds-dashed-border {
+    border-width: 2px;
+    border-style: dashed;
+    border-color: $accentcolor;
+    border-radius: $uiborderradius;
+}
+
+.ds-nav-button, .ds-button {
     display: block;
     background-color: $uicoloralt;
     width: 100%;
-    height: auto;
+    margin: $buttonmargin;
+    height: $buttonheight;
     padding: $buttonpadding;
     color: $maintextcolor;
     font-family: $importantfont;
@@ -113,12 +172,22 @@ strong {
     border: none;
     font-weight: bold;
 }
-.ds-nav-button:hover {
+
+.ds-button {
+    display: inline;
+}
+
+.ds-nav-button:hover, .ds-button:hover {
     background-color: $accentcolor;
 }
 
-.ds-nav-button:active {
+.ds-nav-button:active, .ds-button:active {
     background-color: $accentcolorbright;
+}
+
+.ds-bottom-fixed {
+    margin-top: auto;
+    margin-bottom: 0vh;
 }
 
 .flexitem {
@@ -157,6 +226,86 @@ strong {
     width: $avatarsize;
     height: $avatarsize;
     border-radius: 50%;
-    margin-right: 5vh;
+    margin-right: 3vh;
     object-fit: cover;
+}
+
+.ds-hashtag-holder {
+    margin: 2vh;
+    color: $contexttextcolor;
+    line-height: 2;
+}
+
+.ds-hashtag-holder a {
+    font-family: $importantfont;
+    font-weight: bold;
+}
+
+.ds-hashtag-holder hr {
+    border-color: $contexttextcolor;
+}
+
+
+.ds-modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.ds-modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: $uicolor;
+    margin: 10vh auto;
+    padding: 2vh;
+    border-radius: $uiborderradius;
+    width: 80vh;
+    height: 50vh;
+    text-align: center;
+}
+
+.ds-post-content {
+    display: flex;
+    flex-grow: 1;
+    margin: $uimargin;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: $uiborderradius;
+    resize: none;
+}
+
+.close {
+    display: inline;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ds-text-field {
+    border: none;
+    display: block;
+    font-family: $importantfont;
+    border-radius: $uiborderradius;
+    padding: $textpadding;
+    margin: $uimargin;
+    background-color: $uicolor;
+    color: $maintextcolor;
+}
+
+.ds-centered {
+    margin: auto auto;
 }
