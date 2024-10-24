@@ -1,0 +1,25 @@
+{
+  "name": "brevity",
+  "version": "0.1.0",
+  "description": "BREVITY - an open-source lightweight twitter clone",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "keywords": [],
+  "author": "dustedge",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^7.1.2",
+    "sass": "^1.80.4",
+    "sass-loader": "^16.0.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^5.1.0"
+  }
+}

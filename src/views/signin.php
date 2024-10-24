@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
-<link rel="stylesheet" href="css/styles1.css" />
+<script src="js/bundle.js"></script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
-<link rel="stylesheet" href="css/styles1.css" />
+<script src="js/bundle.js"></script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -42,7 +42,7 @@
           <strong>Ivan Navi</strong> <span>@ivannavi123</span> <span>21 Oct</span>
           <br />
           <p>
-          The big brown fox jumped over the lazy dog. Join Bebra Incorporated today. <a href="#Bebra">#Bebra</a>
+          The big brown fox jumped over the lazy dog. Ahahoy. Join Bebra Incorporated today. <a href="#Bebra">#Bebra</a>
           </p>
         </div>
       </div>
