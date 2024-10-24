@@ -10,7 +10,7 @@
 <div class="flex-container-centered ds-dashed-border" style="flex-direction:row;">
 
     <div class="flex-container-centered">
-        <h1 class="ds-logo-container">BREVITY</h1>
+        <h1 class="ds-logo-container"  id="homeButton">BREVITY</h1>
     </div>
     
     <div class="flex-container-centered" style="align-items:stretch;">
@@ -24,7 +24,7 @@
             <input class="ds-text-field" type="password" style="margin:1vh;" placeholder="Password"/>
         </div>
         <div>
-            <button class="ds-button" style="width:95%;margin:1vh 1vh;"><h3 style="font-size:100%;">Sign In</h3></button>
+            <button class="ds-button" style="width:95%;margin:1vh 1vh;" id="buttonLogin"><h3 style="font-size:100%;">Sign In</h3></button>
         </div>
         <div>
             <p style="display:block;margin:1vh;text-align:center;">Don't have an account?</p>
@@ -33,5 +33,6 @@
     </div>
 
 </div>
+<script src="js/ds-common-buttons.js"></script>
 </body>
 </html>

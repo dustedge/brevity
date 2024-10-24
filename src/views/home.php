@@ -22,7 +22,7 @@
   <div class="flex-container">
 
     <div class="ds-sidebar-left">
-      <div class="ds-logo-container" onclick="doSomething()">
+      <div class="ds-logo-container" id="homeButton">
         <h1 style="text-align:center;color:white;">BREVITY</h1>
       </div>
       <div class="ds-nav-container">
@@ -108,7 +108,6 @@
       </div>
     </div>
   </div>
-  <script src="js/postbutton.js"></script>
-  <script src="js/ds-homepage.js"></script>
+  <script src="js/ds-common-buttons.js"></script>
 </body>
 </html>
