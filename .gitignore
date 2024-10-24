@@ -56,3 +56,6 @@ Desktop.ini
 
 # Cache
 .cache/
+
+# My notes
+*.notes
