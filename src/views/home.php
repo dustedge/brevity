@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
 <script src="js/bundle.js"></script>
+<script defer src="js/ds-common-buttons.js"></script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -108,6 +109,6 @@
       </div>
     </div>
   </div>
-  <script src="js/ds-common-buttons.js"></script>
+  
 </body>
 </html>
