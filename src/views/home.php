@@ -1,7 +1,15 @@
+<?php
+session_start();
+?>
+
 <DOCTYPE !html>
 <html>
 <head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 <script src="js/bundle.js"></script>
 <script defer src="js/ds-common-buttons.js"></script>
 <meta charset="UTF-8" />
@@ -30,8 +38,18 @@
         <button class="ds-nav-button">FEED</button>
         <button class="ds-nav-button" id="buttonUserProfile">PROFILE</button>
         <button class="ds-nav-button" id="postButton">POST</button>
-        <button class="ds-nav-button ds-bottom-fixed" id="buttonSignIn">SIGN-IN</button>
-        <button class="ds-nav-button ds-bottom-fixed" id="buttonLogout" style="display:none;">Logout</button> <!--HIDDEN-->
+        <?php if (!isset($_SESSION['user_id'])): ?>
+        <button class="ds-nav-button ds-bottom-fixed" id="buttonSignIn">Sign In</button>
+        <?php else: ?>
+        <div style="margin:1vh;">
+          <img class="ds-avatar" style="float:left;" src="<?php echo $_SESSION['user_avatar']; ?>"/>
+          Logged in as: <br /> 
+          <a href="/user" style="text-decoration: none;"><strong class="ds-clickable-text"> <?php echo $_SESSION['user_name']; ?> </strong></a>
+          <p class="ds-context-text">@<?php echo $_SESSION['user_tag']; ?></p>
+        </div>
+        <button class="ds-nav-button ds-bottom-fixed" id="buttonLogout">Log out</button>
+        <?php endif; ?>
+        
       </div>
     </div>
 
