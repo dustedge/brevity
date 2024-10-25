@@ -276,6 +276,8 @@ a {
 }
 
 .ds-post-content {
+    background-color: $uicolor;
+    color: $maintextcolor;
     display: flex;
     flex-grow: 1;
     margin: $uimargin;
