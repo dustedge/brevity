@@ -7,7 +7,7 @@ A lightweight open-source twitter clone!
 
 * [x] Prototypes
 * [ ] Main Page
-* [ ] User Login\Registration
+* [x] User Login\Registration
 * [ ] Posting Tweets
 * [ ] Editing\Removing Tweets
 * [ ] Tweet Feed
