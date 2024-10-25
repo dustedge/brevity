@@ -7,6 +7,7 @@ $contexttextcolor: grey;
 $importanttextcolor: rgb(4, 198, 127);
 $accentcolor: rgb(5, 198, 127);
 $accentcolorbright: rgb(50, 240, 140);
+$accentcoloralt: #00bfff;
 $textpadding: 2vh;
 $backgroundcolor: black;
 $uicolor: #181a1b;
@@ -46,7 +47,7 @@ body {
     background-color: $accentcolorbright;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .ds-important-text {
     font-family: $importantfont;
     color: $importanttextcolor;
 }
@@ -89,6 +90,11 @@ a {
     height: $uivh + 2vh;
     overflow-y: auto;
     border-radius: 0%;
+}
+
+.ds-context-text {
+    color: $contexttextcolor;
+    margin: $uimargin;
 }
 
 .flex-container {
@@ -316,4 +322,31 @@ a {
     margin: 1vh;
     color:red;
     font-size: small;
+}
+
+
+@keyframes ds-animate-color {
+    from {
+        color: $accentcolor;
+    }
+    to {
+        color: $accentcoloralt;
+    }
+}
+
+.ds-clickable-text {
+    color: $accentcolor;
+    user-select: none;
+}
+
+.ds-clickable-text:hover {
+    animation-name: ds-animate-color;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    cursor:pointer;
+}
+
+.ds-clickable-text:active {
+    color: $maintextcolor;
 }
