@@ -59,3 +59,7 @@ Desktop.ini
 
 # My notes
 *.notes
+
+# NPM Hot updates
+*.hot-update.json
+*.hot-update.js
