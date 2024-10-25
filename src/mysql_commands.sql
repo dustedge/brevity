@@ -6,7 +6,7 @@ CREATE TABLE users (
     username VARCHAR(30) NOT NULL,
     usertag VARCHAR(30) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL, 
+    email VARCHAR(255) NOT NULL UNIQUE, 
     useravatar varchar(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
