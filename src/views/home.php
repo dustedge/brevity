@@ -39,7 +39,7 @@ session_start();
         <button class="ds-nav-button" id="buttonUserProfile">PROFILE</button>
         <button class="ds-nav-button" id="postButton">POST</button>
         <?php if (!isset($_SESSION['user_id'])): ?>
-        <button class="ds-nav-button ds-bottom-fixed" id="buttonSignIn">Sign In</button>
+        <button class="ds-nav-button ds-bottom-fixed" id="buttonSignIn">SIGN IN</button>
         <?php else: ?>
         <div style="margin:1vh;">
           <img class="ds-avatar" style="float:left;" src="<?php echo $_SESSION['user_avatar']; ?>"/>
@@ -47,7 +47,7 @@ session_start();
           <a href="/user" style="text-decoration: none;"><strong class="ds-clickable-text"> <?php echo $_SESSION['user_name']; ?> </strong></a>
           <p class="ds-context-text">@<?php echo $_SESSION['user_tag']; ?></p>
         </div>
-        <button class="ds-nav-button ds-bottom-fixed" id="buttonLogout">Log out</button>
+        <button class="ds-nav-button ds-bottom-fixed" id="buttonLogout">LOG OUT</button>
         <?php endif; ?>
         
       </div>
