@@ -1,4 +1,8 @@
 <?php
+  ini_set('display_errors', 1);           // dev error report
+  ini_set('display_startup_errors', 1);   // dev error report
+  error_reporting(E_ALL);                   // dev error report
+
   // require_once __DIR__ . '/../vendor/autoload.php'; // composer stuff TO-DO
   
   // routing logic
@@ -17,5 +21,11 @@
     require __DIR__ . "/../src/views/home.php";
   } elseif ($requestUri === "/user") {
     require __DIR__ . "/../src/views/userprofile.php";
+  } elseif ($requestUri === "/register-handler" && $_SERVER["REQUEST_METHOD"] === "POST") {
+    require __DIR__ . "/../src/handlers/register-handler.php";
+  } elseif ($requestUri === "/sign-in-handler" && $_SERVER["REQUEST_METHOD"] === "POST") {
+    require __DIR__ . "/../src/handlers/sign-in-handler.php";
   }
+  
+  
 ?>
