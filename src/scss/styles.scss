@@ -191,6 +191,11 @@ a {
     background-color: $accentcolorbright;
 }
 
+.ds-button:disabled {
+    color: $contexttextcolor;
+    background-color: $uicoloralt;
+}
+
 .ds-bottom-fixed {
     margin-top: auto;
     margin-bottom: 0vh;
@@ -305,7 +310,7 @@ a {
 
 .ds-text-field {
     border: none;
-    display: block;
+    display: flex;
     font-family: $importantfont;
     border-radius: $uiborderradius;
     padding: $textpadding;
