@@ -1,5 +1,7 @@
 <?php
 session_start();
+$page = isset($_GET["page"]) ? $_GET["page"] : "feed";
+$page_user_id = isset($_GET["userid"]) ? $_GET["userid"] : NULL;
 ?>
 
 <DOCTYPE !html>
@@ -35,7 +37,7 @@ session_start();
         <h1 style="text-align:center;color:white;">BREVITY</h1>
       </div>
       <div class="ds-nav-container">
-        <button class="ds-nav-button">FEED</button>
+        <button class="ds-nav-button" id="buttonFeed">FEED</button>
         <button class="ds-nav-button" id="buttonUserProfile">PROFILE</button>
         <button class="ds-nav-button" id="postButton">POST</button>
         <?php if (!isset($_SESSION['user_id'])): ?>
@@ -53,8 +55,15 @@ session_start();
       </div>
     </div>
 
-    <div class="ds-feed">
-
+    <div class="ds-feed" id="feed">
+      <!--ADD FEED HERE. EXAMPLE TWEET: -->
+      <?php 
+        if($page == "feed") {
+          require __DIR__ . "/feed.php";
+        } else if($page == "profile") {
+          require __DIR__ . "/userprofile.php";
+        }
+      ?>
       <div class="ds-tweet-container">
         <img class="ds-avatar" src="icon-large.png" alt="avatar" />
         <div class="ds-tweet-header">
@@ -65,41 +74,6 @@ session_start();
           </p>
         </div>
       </div>
-
-      <div class="ds-tweet-container">
-        <img class="ds-avatar" src="icon-large.png" alt="avatar" />
-        <div class="ds-tweet-header">
-          <strong>TheHeyaya</strong> <span>@hezerg</span> <span>20 Oct</span>
-          <br />
-          <p>
-          It's gonna be fire 🔥🔥🔥🔥🔥🔥 
-          </p>
-        </div>
-      </div>
-
-      <div class="ds-tweet-container">
-        <img class="ds-avatar" src="icon-large.png" alt="avatar" />
-        <div class="ds-tweet-header">
-          <strong>Fireboys</strong> <span>@ilosass</span> <span>19 Oct</span>
-          <br />
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus non lorem maximus, a auctor ligula gravida. Proin lacus felis, bibendum nec iaculis vitae, elementum id dui. Vestibulum dolor ante, lacinia eget sem sed, fringilla congue mi. Etiam elit ante, pulvinar eget tortor consectetur, ullamcorper hendrerit massa. Vestibulum luctus enim a commodo mattis. In facilisis posuere mauris quis feugiat. Curabitur felis quam, porttitor ultricies blandit in, rhoncus nec dolor. Nullam tempus pharetra nunc, ut interdum lectus sodales eget. Maecenas id tincidunt justo.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus non lorem maximus, a auctor ligula gravida. Proin lacus felis, bibendum nec iaculis vitae, elementum id dui. Vestibulum dolor ante, lacinia eget sem sed, fringilla congue mi. Etiam elit ante, pulvinar eget tortor consectetur, ullamcorper hendrerit massa. Vestibulum luctus enim a commodo mattis. In facilisis posuere mauris quis feugiat. Curabitur felis quam, porttitor ultricies blandit in, rhoncus nec dolor. Nullam tempus pharetra nunc, ut interdum lectus sodales eget. Maecenas id tincidunt justo.
-          </p>
-        </div>
-      </div>
-
-      <div class="ds-tweet-container">
-        <img class="ds-avatar" src="icon-large.png" alt="avatar" />
-        <div class="ds-tweet-header">
-          <strong>Gorevandal</strong> <span>@grv_xxx</span> <span>18 Oct</span>
-          <br />
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat purus non lorem maximus, a auctor ligula gravida. Proin lacus felis, bibendum nec iaculis vitae, elementum id dui. Vestibulum dolor ante, lacinia eget sem sed, fringilla congue mi. Etiam elit ante, pulvinar eget tortor consectetur, ullamcorper hendrerit massa. Vestibulum luctus enim a commodo mattis. In facilisis posuere mauris quis feugiat. Curabitur felis quam, porttitor ultricies blandit in, rhoncus nec dolor. Nullam tempus pharetra nunc, ut interdum lectus sodales eget. Maecenas id tincidunt justo.
-          </p>
-        </div>
-      </div>
-
     </div>
 
     <div class="ds-sidebar-right">
