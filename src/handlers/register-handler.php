@@ -55,32 +55,36 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "POST: reCaptcha: Key Missing. Ignoring...";
     }
 
+    // Recaptcha check END
 
-
+    // Password matching check
     if($password != $passwordConfirm) {
         echo "POST: Error. Passwords don't match.";
         exit;
     }
 
+    // Email validation check
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "POST: Error. Failed to validate email.";
         exit;
     }
 
+    // Hash password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // connect to db
     require_once __DIR__ . '/../db.php';
 
 
-    // check if user with same email exists
-    $check = $pdo->prepare("SELECT * FROM users WHERE email = :email LIMIT 1");
+    // check if user with same email or usertag exists
+    $check = $pdo->prepare("SELECT * FROM users WHERE email = :email OR usertag = :login LIMIT 1");
     $check->bindParam(":email", $email);
+    $check->bindParam(":login", $login);
     try {
         $check->execute();
         $checkuser = $check->fetch();
         if($checkuser) {
-            echo "POST: Error. Email taken.";
+            echo "POST: Error. Email or User name is already taken.";
             exit;
         }
     }
@@ -99,7 +103,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $stmt->execute();
-        //echo "POST: Registration successful";
         header("Location: /welcome-new");
     }
     catch(PDOException $e) {
