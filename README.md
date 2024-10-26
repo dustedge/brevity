@@ -6,11 +6,11 @@ A lightweight open-source twitter clone!
 ## Core Project Roadmap:
 
 * [x] Prototypes
-* [ ] Main Page
+* [x] Main Page
 * [x] User Login\Registration
 * [ ] Posting Tweets
 * [ ] Editing\Removing Tweets
-* [ ] Tweet Feed
+* [x] Tweet Feed
 * [ ] User Profile Page
 * [ ] User Avatar
 * [ ] Build and Run Guide
