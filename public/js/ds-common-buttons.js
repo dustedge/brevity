@@ -16,11 +16,19 @@ if(buttonLogout != null) {
     });
 }
 
+buttonLogout = document.getElementById("buttonFeed");
+
+if(buttonLogout != null) {
+    buttonLogout.addEventListener('click', function() {
+        window.location.href = "/?page=feed";
+    });
+}
+
 buttonUserProfile = document.getElementById("buttonUserProfile");
 
 if(buttonUserProfile != null) {
     buttonUserProfile.addEventListener('click', function() {
-        window.location.href = "/user";
+        window.location.href = "/?page=profile";
     });
 }
 
