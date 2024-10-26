@@ -9,6 +9,54 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $login = htmlspecialchars(trim($_POST['login']));
     $avatar = "/images/avatar-none.png";
 
+    // Recaptcha check. Ignored if no key is provided
+
+    $secretKeyPath = __DIR__ . "/../recaptcha.key";
+
+    if (file_exists($secretKeyPath)) {
+        $recaptchaResponse = $_POST['g-recaptcha-response'];
+        $secretKey = trim(file_get_contents($secretKeyPath));
+        if(!empty($secretKey)) 
+        {
+            if (empty($recaptchaResponse)) {
+                echo "POST: Error. Recaptcha response is missing.";
+                exit;
+            }
+            try {
+                // reCAPTCHA API request
+                $url = "https://www.google.com/recaptcha/api/siteverify";
+                $data = [
+                    'secret' => $secretKey,
+                    'response' => $recaptchaResponse,
+                ];
+
+                // cURL check request
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_POST,true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $curlResponse = curl_exec($ch);
+                curl_close($ch); 
+                
+                $curlResponseData = json_decode($curlResponse);
+                
+                // reCaptcha Check
+                if (!$curlResponseData->success) {
+                    echo 'POST: reCAPTCHA Check: Failed.';
+                    exit;
+                }
+            } catch (Exception $e) {
+                echo 'POST: reCAPTCHA Check: Error: ' . $e->getMessage();
+                exit;
+            }
+        }
+    } else {
+        echo "POST: reCaptcha: Key Missing. Ignoring...";
+    }
+
+
+
     if($password != $passwordConfirm) {
         echo "POST: Error. Passwords don't match.";
         exit;
@@ -51,7 +99,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $stmt->execute();
-        // echo "POST: Registration successful";
+        //echo "POST: Registration successful";
         header("Location: /welcome-new");
     }
     catch(PDOException $e) {
