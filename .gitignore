@@ -63,3 +63,6 @@ Desktop.ini
 # NPM Hot updates
 *.hot-update.json
 *.hot-update.js
+
+# Recaptcha secret
+recaptcha.key
