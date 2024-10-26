@@ -20,6 +20,7 @@ $feedwidth: 100% - ($sidebarwidth*2);
 $uimargin: 1vh;
 $uivh: 94vh;
 $avatarsize: 8vh;
+$profileavatarsize: 20vh;
 $buttonmargin: 1vh 0;
 
 $buttonheight: 10vh;
@@ -356,4 +357,37 @@ a {
 
 .ds-clickable-text:active {
     color: $maintextcolor;
+}
+
+.ds-userprofile-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $uicoloralt;
+    padding: $textpadding;
+    margin: $uimargin;
+    border-radius: 0;
+}
+
+.ds-userprofile-avatar {
+    display: inline;
+    float: left;
+    size: $profileavatarsize;
+    max-width: $profileavatarsize;
+    max-height: $profileavatarsize;
+    margin: $uimargin;
+}
+
+.ds-userprofile-container span {
+    color: $contexttextcolor;
+}
+
+.ds-userprofile-content {
+    padding-left: $textpadding;
+    padding-right: $textpadding;
+}
+
+.ds-edit-button {
+    width: fit-content;
+    height: fit-content;
+    float: right;
 }
