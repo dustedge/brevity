@@ -1,0 +1,65 @@
+
+@use 'variables' as *;
+
+
+@keyframes ds-animate-color {
+    from {
+        color: $accentcolor;
+    }
+    to {
+        color: $accentcoloralt;
+    }
+}
+
+@keyframes ds-appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes ds-dissapear {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes ds-gradient {
+    from {
+        background-color: $accentcolor;
+    }
+    to {
+        background-color: $accentcoloralt;
+    }
+}
+
+@keyframes ds-alternating-border {
+    0% {
+        border-style: dashed;
+    }
+    25% {
+        border-style: dotted;
+    }
+    50% {
+        border-style: double;
+    }
+    75% {
+        border-style: solid;
+    }
+}
+
+@keyframes ds-appear-from-bottom {
+    from {
+        opacity: 0;
+        transform: translateY(10vh);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0vh);
+    }
+}

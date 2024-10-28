@@ -1,30 +1,8 @@
 /* TEST! */
 
 @use 'sass:math';
-
-$maintextcolor: rgb(255, 255, 255);
-$contexttextcolor: grey;
-$importanttextcolor: rgb(4, 198, 127);
-$accentcolor: rgb(5, 198, 127);
-$accentcolorbright: rgb(50, 240, 140);
-$accentcoloralt: #00bfff;
-$textpadding: 2vh;
-$backgroundcolor: black;
-$uicolor: #181a1b;
-$uicoloralt: #272b2c;
-$importantfont: "Ubuntu", "Lucida Console", "monospace";
-$basefont: "Ubuntu", "Lucida Console", "monospace";
-$uiborderradius: 15px;
-$sidebarwidth: 19%;
-$feedwidth: 100% - ($sidebarwidth*2);
-$uimargin: 1vh;
-$uivh: 94vh;
-$avatarsize: 8vh;
-$profileavatarsize: 20vh;
-$buttonmargin: 1vh 0;
-
-$buttonheight: 10vh;
-$buttonpadding: 10px;
+@use 'variables' as *;
+@use 'animations';
 
 body {
     background-color: $backgroundcolor;
@@ -217,6 +195,14 @@ a {
     border-width: 2px;
     border-style: dashed;
     border-color: $accentcolor;
+    animation-name: ds-appear;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+
+.ds-tweet-container p{
+    animation: ds-appear-from-bottom 0.5s ease-out 0s 1 normal forwards;
 }
 
 .ds-tweet-header {
@@ -330,16 +316,6 @@ a {
     margin: 1vh;
     color:red;
     font-size: small;
-}
-
-
-@keyframes ds-animate-color {
-    from {
-        color: $accentcolor;
-    }
-    to {
-        color: $accentcoloralt;
-    }
 }
 
 .ds-clickable-text {
