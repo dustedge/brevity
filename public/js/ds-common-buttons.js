@@ -1,6 +1,6 @@
 // Common button functionality
 
-buttonSignIn = document.getElementById("buttonSignIn");
+const buttonSignIn = document.getElementById("buttonSignIn");
 
 if(buttonSignIn != null) {
     buttonSignIn.addEventListener('click', function() {
@@ -8,7 +8,7 @@ if(buttonSignIn != null) {
     });
 }
 
-buttonLogout = document.getElementById("buttonLogout");
+const buttonLogout = document.getElementById("buttonLogout");
 
 if(buttonLogout != null) {
     buttonLogout.addEventListener('click', function() {
@@ -16,19 +16,51 @@ if(buttonLogout != null) {
     });
 }
 
-buttonLogout = document.getElementById("buttonFeed");
+const buttonFeed = document.getElementById("buttonFeed");
 
-if(buttonLogout != null) {
-    buttonLogout.addEventListener('click', function() {
+if(buttonFeed != null) {
+    buttonFeed.addEventListener('click', function() {
         window.location.href = "/?page=feed";
     });
 }
 
-buttonUserProfile = document.getElementById("buttonUserProfile");
+const buttonUserProfile = document.getElementById("buttonUserProfile");
 
 if(buttonUserProfile != null) {
     buttonUserProfile.addEventListener('click', function() {
         window.location.href = "/?page=profile";
+    });
+}
+
+const buttonAddNewPost = document.getElementById("buttonAddNewPost");
+
+if(buttonAddNewPost != null) {
+    buttonAddNewPost.addEventListener('click', function() {
+        newPostContent = document.getElementById("newPostContent").value;
+
+        // if new post is empty return
+        if(!newPostContent.trim()) {
+            return;
+        }
+
+        // AJAX logic
+        fetch("/add-post", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ newPostContent })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success) {
+                document.getElementById('postWindowModal').style.display = 'none';
+                location.reload();
+            } else {
+                alert(data.message || "Error adding post.");
+            }
+        })
+        .catch(error => console.error("Error:", error));
     });
 }
 
