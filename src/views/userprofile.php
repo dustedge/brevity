@@ -3,26 +3,91 @@
 $editable = false;
 if (isset($_SESSION['user_id']) && ($page_user_id == NULL || $page_user_id == $_SESSION['user_id'])) {
     $editable = true;
-    // DISPLAY PROFILE OF SELF + EDITABLE
+    $page_user_id = $_SESSION['user_id'];
+    // select * from posts where user_id = $_SESSION['user_id'] order by created_at desc limit 50
 }
 // if no SESSION is present just display the page of user id provided.
 elseif (!isset($_SESSION['user_id'])) {
     $editable = false;
     // DON'T FORGET TO HANDLE NONEXISTANT USERS
 }
+
+require_once(__DIR__ . '/../db.php'); // include database
+
+// get info about target user
+$request = $pdo->prepare('SELECT * FROM users WHERE id = :id LIMIT 1');
+$request->bindParam(':id', $page_user_id);
+unset($result);
+
+try {
+    $request->execute();
+    $result = $request->fetch();
+    if(empty($result)) {
+        header('Location: /');
+    }
+}
+catch (PDOException $e) {
+    echo $e->getMessage();
+    exit;
+}
+
+// get users posts
+
+$request = $pdo->prepare('SELECT posts.id AS post_id, 
+posts.*, 
+users.username, 
+users.usertag, 
+users.useravatar 
+FROM posts 
+JOIN users 
+ON users.id = posts.user_id
+WHERE users.id = :page_user_id
+ORDER BY posts.created_at DESC
+LIMIT 50');
+$request->bindParam(':page_user_id', $page_user_id);
+
+unset($posts);
+
+try {
+    $request->execute();
+    $posts = $request->fetchAll();
+}
+catch (PDOException $e) {
+    echo $e->getMessage();
+    exit;
+}
+
 ?>
 
 <div class="ds-userprofile-container ds-dashed-border">
-    <img class="ds-userprofile-avatar" src="images/avatar-none.png"/>
+    <img class="ds-userprofile-avatar" src="<?= $result['useravatar'] ?>"/>
     <div class="ds-userprofile-content">
+    <?php if($editable): ?>
     <button class="ds-button ds-edit-button">✏️</button>
-    <strong class="ds-clickable-text" style="font-size:large">User name</strong>
+    <?php endif; ?>
+    <strong class="ds-clickable-text" style="font-size:large"><?= $result['username'] ?></strong>
     <br />
-    <span>@usertag</span>
+    <span> @<?= $result['usertag'] ?> </span>
+    <span style="float:right"> Member since: <?= date("d-m-Y",strtotime($result['created_at'])) ?> </span>
     <br />
-    <p>User description. text of text text of text text of text text of text text of text text of text</p>
+    <p>User description.</p>
     </div>
 </div>
 <h2 class="ds-clickable-text" style="margin:1vh;">POSTS:</h2>
 
-<?php require __DIR__ . "/feed.php" ?>
+    <!--DRAW POSTS-->
+
+<?php foreach ($posts as $post): ?>
+<div class="ds-tweet-container">
+  <img class="ds-avatar" src="<?= htmlspecialchars($post['useravatar'])?>" alt="avatar" />
+  <div class="ds-tweet-header">
+    <strong><a class="ds-clickable-text" href="/?page=profile&userid=<?=$post['user_id']?>"><?= htmlspecialchars($post['username']) ?></a></strong> 
+    <span>@<?= htmlspecialchars($post['usertag']) ?></span> 
+    <span><?= htmlspecialchars($post['created_at']) ?></span>
+    <br />
+    <p>
+    <?= $post['content'] ?>
+    </p>
+  </div>
+</div>
+<?php endforeach; ?>
