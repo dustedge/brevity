@@ -5,7 +5,8 @@ require_once __DIR__ . "/../db.php";
 // Get last 50 posts
 $request = $pdo->prepare(
     "SELECT 
-    posts.id AS post_id, 
+    posts.id AS post_id,
+    posts.user_id, 
     posts.content,
     posts.created_at,
     posts.edited_at,
@@ -30,7 +31,7 @@ catch (PDOException $e) {
 <div class="ds-tweet-container">
   <img class="ds-avatar" src="<?= htmlspecialchars($post['useravatar'])?>" alt="avatar" />
   <div class="ds-tweet-header">
-    <strong><?= htmlspecialchars($post['username']) ?></strong> 
+    <strong><a class="ds-clickable-text" href="/?page=profile&userid=<?=$post['user_id']?>"><?= htmlspecialchars($post['username']) ?></a></strong> 
     <span>@<?= htmlspecialchars($post['usertag']) ?></span> 
     <span><?= htmlspecialchars($post['created_at']) ?></span>
     <br />
