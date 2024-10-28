@@ -8,6 +8,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE, 
     useravatar varchar(255),
+    userdescription varchar(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

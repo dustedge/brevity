@@ -37,7 +37,8 @@ $request = $pdo->prepare('SELECT posts.id AS post_id,
 posts.*, 
 users.username, 
 users.usertag, 
-users.useravatar 
+users.useravatar,
+users.userdescription
 FROM posts 
 JOIN users 
 ON users.id = posts.user_id
@@ -59,18 +60,43 @@ catch (PDOException $e) {
 
 ?>
 
+<?php if($editable): ?>
+<div class="ds-modal" id="editProfileWindowModal" style="display:flex;">
+    <div class="ds-modal-content ds-dashed-border" style="height:70vh;">
+        <form id="editProfileForm" style="display:flex; flex-direction:column; flex-grow:1; justify-content:space-between;">
+            <div class="ds-userprofile-content">
+                <img class="ds-userprofile-avatar" src="<?= $result['useravatar'] ?>">
+                <div>
+                    <span class="close" style="float:right;">&times;</span>
+                    <input class="ds-text-field" style="display:block; width:60%;" type="text" value="<?= $result['username'] ?>" style="font-weight:bold;font-size:large" required />
+                </div>
+                <span class="ds-context-text" style="float:left;">@<?= $result['usertag'] ?></span>
+                <span class="ds-context-text" style="float:right"> Member since: <?= date("d-m-Y",strtotime($result['created_at'])) ?> </span>
+                <button type="button" class="ds-button">Change Avatar</button>
+            </div>
+            <div style="display:flex;">
+                <textarea class="ds-post-content" style="height:25vh;"></textarea>
+            </div>
+            <div>
+                <button type="button" class="ds-button ds-bottom-fixed">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+<?php endif; ?>
+
 <div class="ds-userprofile-container ds-dashed-border">
     <img class="ds-userprofile-avatar" src="<?= $result['useravatar'] ?>"/>
     <div class="ds-userprofile-content">
     <?php if($editable): ?>
-    <button class="ds-button ds-edit-button">✏️</button>
+    <button class="ds-button ds-edit-button" id="buttonEditProfile">✏️</button>
     <?php endif; ?>
     <strong class="ds-clickable-text" style="font-size:large"><?= $result['username'] ?></strong>
     <br />
     <span> @<?= $result['usertag'] ?> </span>
     <span style="float:right"> Member since: <?= date("d-m-Y",strtotime($result['created_at'])) ?> </span>
     <br />
-    <p>User description.</p>
+    <p> <?= $result['userdescription'] ?> </p>
     </div>
 </div>
 <h2 class="ds-clickable-text" style="margin:1vh;">POSTS:</h2>

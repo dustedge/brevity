@@ -64,7 +64,7 @@ if(buttonAddNewPost != null) {
     });
 }
 
-// Modal post button
+// Modal post window
 // Aquire button
 const postButton = document.getElementById('postButton');
 if(postButton != null) {
@@ -88,6 +88,11 @@ if(postButton != null) {
             postWindowModal.style.display = 'none';
         }
     });
+}
+
+const buttonEditProfile = document.getElementById('buttonEditProfile');
+if(buttonEditProfile != null) {
+
 }
 
 const homeButton = document.getElementById("homeButton");
