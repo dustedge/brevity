@@ -345,6 +345,7 @@ a {
 .ds-clickable-text {
     color: $accentcolor;
     user-select: none;
+    text-decoration: none;
 }
 
 .ds-clickable-text:hover {
@@ -370,6 +371,10 @@ a {
 
 .ds-userprofile-avatar {
     display: inline;
+    width: 15vh;
+    height: 15vh;
+    object-fit: cover;
+    border-radius: 50%;
     float: left;
     size: $profileavatarsize;
     max-width: $profileavatarsize;
