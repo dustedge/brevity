@@ -26,16 +26,17 @@ catch (PDOException $e) {
     echo "SQL Error: ". $e->getMessage();
 } 
 ?>
-
+<?php $counter = 0 ?>
 <?php foreach ($posts as $post): ?>
-<div class="ds-tweet-container">
+<?php $counter += 1 ?>
+<div class="ds-tweet-container" style="opacity: 0;animation-delay: <?=$counter * 0.1?>s;">
   <img class="ds-avatar" src="<?= htmlspecialchars($post['useravatar'])?>" alt="avatar" />
   <div class="ds-tweet-header">
     <strong><a class="ds-clickable-text" href="/?page=profile&userid=<?=$post['user_id']?>"><?= htmlspecialchars($post['username']) ?></a></strong> 
     <span>@<?= htmlspecialchars($post['usertag']) ?></span> 
     <span><?= htmlspecialchars($post['created_at']) ?></span>
     <br />
-    <p>
+    <p style="opacity: 0;animation-delay: <?=$counter * 0.1?>s;">
     <?= $post['content'] ?>
     </p>
   </div>
