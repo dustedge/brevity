@@ -8,11 +8,12 @@ A lightweight open-source twitter clone!
 * [x] Prototypes
 * [x] Main Page
 * [x] User Login\Registration
-* [ ] Posting Tweets
+* [x] Posting Tweets
 * [ ] Editing\Removing Tweets
 * [x] Tweet Feed
-* [ ] User Profile Page
-* [ ] User Avatar
+* [x] User Profile Page
+* [ ] User Profile Page Edit
+* [ ] User Avatar Upload
 * [ ] Build and Run Guide
 
 ## Extra Features
