@@ -18,17 +18,21 @@ $page_user_id = isset($_GET["userid"]) ? $_GET["userid"] : NULL;
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-  <div id="postWindowModal" class="ds-modal">
-    <div class="ds-modal-content">
-      <div>
-        <h2 style="display:inline;float:left;">Post new message:</h2> <span class="close">&times;</span>
-      </div>
-      <textarea class="ds-post-content ds-dashed-border"></textarea>
-      <div>
-        <button class="ds-button" id="addNewPostButton">POST</button>
-      </div>
+  <?php if(isset($_SESSION["user_id"])): ?> 
+    <div id="postWindowModal" class="ds-modal">
+      <form id="newPostForm">
+        <div class="ds-modal-content">
+          <div>
+            <h2 style="display:inline;float:left;">Post new message:</h2> <span class="close">&times;</span>
+          </div>
+          <textarea class="ds-post-content ds-dashed-border" id="newPostContent" placeholder="What's happening?" required></textarea>
+          <div>
+            <button type="button" class="ds-button" id="buttonAddNewPost">POST</button>
+          </div>
+        </div>
+      </form>
     </div>
-  </div>
+  <?php endif; ?>
 
   <div class="flex-container">
 
@@ -38,15 +42,15 @@ $page_user_id = isset($_GET["userid"]) ? $_GET["userid"] : NULL;
       </div>
       <div class="ds-nav-container">
         <button class="ds-nav-button" id="buttonFeed">FEED</button>
-        <button class="ds-nav-button" id="buttonUserProfile">PROFILE</button>
-        <button class="ds-nav-button" id="postButton">POST</button>
         <?php if (!isset($_SESSION['user_id'])): ?>
         <button class="ds-nav-button ds-bottom-fixed" id="buttonSignIn">SIGN IN</button>
         <?php else: ?>
+        <button class="ds-nav-button" id="buttonUserProfile">PROFILE</button>
+        <button class="ds-nav-button" id="postButton">POST</button>
         <div style="margin:1vh;">
           <img class="ds-avatar" style="float:left;" src="<?php echo $_SESSION['user_avatar']; ?>"/>
           Logged in as: <br /> 
-          <a href="/user" style="text-decoration: none;"><strong class="ds-clickable-text"> <?php echo $_SESSION['user_name']; ?> </strong></a>
+          <a href="/?page=profile" style="text-decoration: none;"><strong class="ds-clickable-text"> <?php echo $_SESSION['user_name']; ?> </strong></a>
           <p class="ds-context-text">@<?php echo $_SESSION['user_tag']; ?></p>
         </div>
         <button class="ds-nav-button ds-bottom-fixed" id="buttonLogout">LOG OUT</button>
@@ -64,16 +68,6 @@ $page_user_id = isset($_GET["userid"]) ? $_GET["userid"] : NULL;
           require __DIR__ . "/userprofile.php";
         }
       ?>
-      <div class="ds-tweet-container">
-        <img class="ds-avatar" src="icon-large.png" alt="avatar" />
-        <div class="ds-tweet-header">
-          <strong>Ivan Navi</strong> <span>@ivannavi123</span> <span>21 Oct</span>
-          <br />
-          <p>
-          The big brown fox jumped over the lazy dog. Ahahoy. Join Bebra Incorporated today. <a href="#Bebra">#Bebra</a>
-          </p>
-        </div>
-      </div>
     </div>
 
     <div class="ds-sidebar-right">
