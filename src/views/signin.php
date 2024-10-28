@@ -64,7 +64,7 @@
                 errorMessage.innerText = data.message;
             } else {
                 // transfer to user profile page
-                window.location.href = "/user";
+                window.location.href = "/?page=profile";
             }
         })
         .catch(error => console.error('Error:', error));
