@@ -296,7 +296,7 @@ a {
 }
 
 .ds-text-field {
-    border: none;
+    border: solid 2px $contexttextcolor;
     display: flex;
     font-family: $importantfont;
     border-radius: $uiborderradius;
