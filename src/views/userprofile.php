@@ -61,24 +61,29 @@ catch (PDOException $e) {
 ?>
 
 <?php if($editable): ?>
-<div class="ds-modal" id="editProfileWindowModal" style="display:flex;">
+<div class="ds-modal" id="editProfileWindowModal">
     <div class="ds-modal-content ds-dashed-border" style="height:70vh;">
         <form id="editProfileForm" style="display:flex; flex-direction:column; flex-grow:1; justify-content:space-between;">
             <div class="ds-userprofile-content">
-                <img class="ds-userprofile-avatar" src="<?= $result['useravatar'] ?>">
+                <div style="display:inline;">
+                    <img id="editAvatarPreview" class="ds-userprofile-avatar ds-dashed-border" style="position:relative;left:-1vw;" src="<?= $result['useravatar'] ?>">
+                    <label for="avatarUpload" class="ds-button ds-edit-button" style="float:none;position:relative; top: 75%; left: -44%;">✏️</label>
+                    <input type="file" id="avatarUpload" name="avatarUpload" accept="image/*" style="display:none;" />
+                </div>
+                
                 <div>
-                    <span class="close" style="float:right;">&times;</span>
-                    <input class="ds-text-field" style="display:block; width:60%;" type="text" value="<?= $result['username'] ?>" style="font-weight:bold;font-size:large" required />
+                    <span class="close" id="closeProfileEdit" style="float:right;">&times;</span>
+                    <input id="editUsernameTextfield" class="ds-text-field" style="display:block; width:60%;" type="text" value="<?= $result['username'] ?>" style="font-weight:bold;font-size:large" required />
                 </div>
                 <span class="ds-context-text" style="float:left;">@<?= $result['usertag'] ?></span>
                 <span class="ds-context-text" style="float:right"> Member since: <?= date("d-m-Y",strtotime($result['created_at'])) ?> </span>
-                <button type="button" class="ds-button">Change Avatar</button>
+                
             </div>
             <div style="display:flex;">
-                <textarea class="ds-post-content" style="height:25vh;"></textarea>
+                <textarea class="ds-post-content" id="editDescriptionTextfield" style="height:25vh;" placeholder="Description"><?= $result['userdescription'] ?></textarea>
             </div>
             <div>
-                <button type="button" class="ds-button ds-bottom-fixed">Save Changes</button>
+                <button type="button" class="ds-button ds-bottom-fixed" id="buttonSaveProfile">Save Changes</button>
             </div>
         </form>
     </div>
@@ -86,11 +91,14 @@ catch (PDOException $e) {
 <?php endif; ?>
 
 <div class="ds-userprofile-container ds-dashed-border">
-    <img class="ds-userprofile-avatar" src="<?= $result['useravatar'] ?>"/>
+    <div>
+        <img class="ds-userprofile-avatar" src="<?= $result['useravatar'] ?>"/>
+        <?php if($editable): ?>
+        <button class="ds-button ds-edit-button" id="buttonEditProfile">✏️</button>
+        <?php endif; ?>
+    </div>
     <div class="ds-userprofile-content">
-    <?php if($editable): ?>
-    <button class="ds-button ds-edit-button" id="buttonEditProfile">✏️</button>
-    <?php endif; ?>
+    
     <strong class="ds-clickable-text" style="font-size:large"><?= $result['username'] ?></strong>
     <br />
     <span> @<?= $result['usertag'] ?> </span>

@@ -64,6 +64,7 @@ if(buttonAddNewPost != null) {
     });
 }
 
+
 // Modal post window
 // Aquire button
 const postButton = document.getElementById('postButton');
@@ -90,9 +91,85 @@ if(postButton != null) {
     });
 }
 
+// Modal edit profile window
+// Aquire button
 const buttonEditProfile = document.getElementById('buttonEditProfile');
 if(buttonEditProfile != null) {
+    const editProfileWindowModal = document.getElementById('editProfileWindowModal');
+    const closeWindowModal = document.getElementById('closeProfileEdit');
 
+    // Open modal window when "Edit" is pressed
+    buttonEditProfile.addEventListener('click', function()
+    {
+        editProfileWindowModal.style.display = 'flex';
+    });
+
+    // Close modal window when close element is pressed
+    closeWindowModal.addEventListener('click', function() {
+        editProfileWindowModal.style.display = 'none'; 
+    });
+
+    // Close modal window when clicked outside
+    window.addEventListener('click', function(event) {
+        if(event.target === editProfileWindowModal) {
+            editProfileWindowModal.style.display = 'none';
+        }
+    });
+}
+
+// Show avatar preview when chosen file changes
+const editAvatarPreview = document.getElementById("editAvatarPreview");
+const avatarUpload = document.getElementById('avatarUpload');
+
+if(avatarUpload != null) {
+    avatarUpload.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if(file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                editAvatarPreview.src = e.target.result; // set chosen image as preview
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+}
+
+
+// Save Profile changes AJAX
+const buttonSaveProfile = document.getElementById('buttonSaveProfile');
+if(buttonSaveProfile != null) {
+    buttonSaveProfile.addEventListener('click', function () {
+        newProfileName = document.getElementById('editUsernameTextfield').value;
+        newProfileDescription = document.getElementById('editDescriptionTextfield').value;
+        newAvatar = document.getElementById('avatarUpload').files[0];
+
+        formData = new FormData();
+        formData.append('newProfileName', newProfileName);
+        formData.append('newProfileDescription', newProfileDescription);
+        
+        if(newAvatar) {
+            formData.append('newAvatar', newAvatar);
+        }
+
+        if(!newProfileName.trim()) {
+            alert("Display name can not be empty");
+            return;
+        }
+        fetch("/edit-profile", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success) {
+                document.getElementById('editProfileWindowModal').style.display = 'none';
+                location.reload();
+            } else {
+                alert(data.message || "Error editing profile.");
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
 }
 
 const homeButton = document.getElementById("homeButton");
