@@ -12,8 +12,8 @@ A lightweight open-source twitter clone!
 * [ ] Editing\Removing Tweets
 * [x] Tweet Feed
 * [x] User Profile Page
-* [ ] User Profile Page Edit
-* [ ] User Avatar Upload
+* [x] User Profile Page Edit
+* [x] User Avatar Upload
 * [ ] Build and Run Guide
 
 ## Extra Features
