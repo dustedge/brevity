@@ -60,7 +60,7 @@ catch (PDOException $e) {
 
 ?>
 
-<?php if($editable): ?>
+<?php if($editable): // Add profile edit modal window to html if profile is editable?>
 <div class="ds-modal" id="editProfileWindowModal">
     <div class="ds-modal-content ds-dashed-border" style="height:70vh;">
         <form id="editProfileForm" style="display:flex; flex-direction:column; flex-grow:1; justify-content:space-between;">
@@ -94,7 +94,7 @@ catch (PDOException $e) {
     <div>
         <img class="ds-userprofile-avatar" src="<?= $result['useravatar'] ?>"/>
         <?php if($editable): ?>
-        <button class="ds-button ds-edit-button" id="buttonEditProfile">✏️</button>
+        <button class="ds-button ds-edit-button" id="buttonEditProfile"><i class="fa-solid fa-pen-to-square"></i></button>
         <?php endif; ?>
     </div>
     <div class="ds-userprofile-content">
@@ -112,15 +112,21 @@ catch (PDOException $e) {
     <!--DRAW POSTS-->
 
 <?php foreach ($posts as $post): ?>
-<div class="ds-tweet-container">
+<div class="ds-tweet-container" id="post_<?= $post['id'] ?>">
   <img class="ds-avatar" src="<?= htmlspecialchars($post['useravatar'])?>" alt="avatar" />
   <div class="ds-tweet-header">
+    <?php if(isset($_SESSION['user_id']) && $post['user_id'] == $_SESSION['user_id']): ?>
+    <button class="ds-button ds-edit-button edit-post-button" post-id="<?= $post['id'] ?>" style="float:right;"><i class="fa-solid fa-pen-to-square"></i></button>
+    <?php endif; ?>
     <strong><a class="ds-clickable-text" href="/?page=profile&userid=<?=$post['user_id']?>"><?= htmlspecialchars($post['username']) ?></a></strong> 
     <span>@<?= htmlspecialchars($post['usertag']) ?></span> 
     <span><?= htmlspecialchars($post['created_at']) ?></span>
+    <?php if($post['edited_at'] != $post['created_at']): ?>
+        <span style="font-size:smaller;">(edited)</span>
+    <?php endif; ?>
     <br />
-    <p>
-    <?= $post['content'] ?>
+    <p id="<?= "postContent_" . $post['id'] ?>">
+    <?= nl2br(htmlspecialchars($post['content'])) ?>
     </p>
   </div>
 </div>
