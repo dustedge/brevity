@@ -67,13 +67,13 @@ catch (PDOException $e) {
             <div class="ds-userprofile-content">
                 <div style="display:inline;">
                     <img id="editAvatarPreview" class="ds-userprofile-avatar ds-dashed-border" style="position:relative;left:-1vw;" src="<?= $result['useravatar'] ?>">
-                    <label for="avatarUpload" class="ds-button ds-edit-button" style="float:none;position:relative; top: 75%; left: -44%;">✏️</label>
+                    <label for="avatarUpload" class="ds-button ds-edit-button" style="float:none;position:relative; top: 75%; left: -44%;"><i class="fa-solid fa-upload"></i></label>
                     <input type="file" id="avatarUpload" name="avatarUpload" accept="image/*" style="display:none;" />
                 </div>
                 
                 <div>
                     <span class="close" id="closeProfileEdit" style="float:right;">&times;</span>
-                    <input id="editUsernameTextfield" class="ds-text-field" style="display:block; width:60%;" type="text" value="<?= $result['username'] ?>" style="font-weight:bold;font-size:large" required />
+                    <input id="editUsernameTextfield" class="ds-text-field" style="display:block; width:60%; font-size:medium;" type="text" value="<?= $result['username'] ?>" style="font-weight:bold;font-size:large" required />
                 </div>
                 <span class="ds-context-text" style="float:left;">@<?= $result['usertag'] ?></span>
                 <span class="ds-context-text" style="float:right"> Member since: <?= date("d-m-Y",strtotime($result['created_at'])) ?> </span>
@@ -83,7 +83,7 @@ catch (PDOException $e) {
                 <textarea class="ds-post-content" id="editDescriptionTextfield" style="height:25vh;" placeholder="Description"><?= $result['userdescription'] ?></textarea>
             </div>
             <div>
-                <button type="button" class="ds-button ds-bottom-fixed" id="buttonSaveProfile">Save Changes</button>
+                <button type="button" class="ds-button ds-bottom-fixed" id="buttonSaveProfile"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
             </div>
         </form>
     </div>
@@ -104,7 +104,7 @@ catch (PDOException $e) {
     <span> @<?= $result['usertag'] ?> </span>
     <span style="float:right"> Member since: <?= date("d-m-Y",strtotime($result['created_at'])) ?> </span>
     <br />
-    <p> <?= $result['userdescription'] ?> </p>
+    <p style="line-height:2em;"> <?= nl2br($result['userdescription']); ?> </p>
     </div>
 </div>
 <h2 class="ds-clickable-text" style="margin:1vh;">POSTS:</h2>
@@ -126,7 +126,7 @@ catch (PDOException $e) {
     <?php endif; ?>
     <br />
     <p id="<?= "postContent_" . $post['id'] ?>">
-    <?= nl2br($post['content']) ?>
+    <?= nl2br($post['content']); ?>
     </p>
   </div>
 </div>

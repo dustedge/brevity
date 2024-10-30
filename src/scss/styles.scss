@@ -261,15 +261,17 @@ a {
     display: flex;
     flex-direction: column;
     background-color: $uicolor;
-    margin: 10vh auto;
+    margin: auto auto;
+    margin-top: 10vh;
     padding: 2vh;
     border-radius: $uiborderradius;
-    width: 80vh;
-    height: 50vh;
+    width: fit-content;
+    height: fit-content;
     text-align: center;
 }
 
 .ds-post-content {
+    font-family: inherit;
     background-color: $uicolor;
     color: $maintextcolor;
     display: flex;
@@ -278,7 +280,13 @@ a {
     padding: 10px;
     font-size: 16px;
     border-radius: $uiborderradius;
-    resize: none;
+    line-height: 2;
+    height: fit-content;
+    min-height: 40vh;
+    min-width: 40vw;
+    max-width: 90vw;
+    max-height: 60vh;
+    resize: both;
 }
 
 .close {
