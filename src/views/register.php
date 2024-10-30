@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -16,7 +17,7 @@
 <div class="flex-container-centered ds-dashed-border" style="flex-direction:row;">
 
     <div class="flex-container-centered">
-        <h1 class="ds-logo-container" id="homeButton">BREVITY</h1>
+        <h1 class="ds-logo-container" id="homeButton"><i class="fa-solid fa-radio"></i> BREVITY</h1>
     </div>
     
     <div class="flex-container-centered" style="align-items:stretch;min-width:20vw">
@@ -38,7 +39,7 @@
             </div>
             <div class="g-recaptcha" style="width:95%;margin:1vh 1vh;" data-sitekey="6LeQ42wqAAAAAA6wPEaeCQT0U0-i3VDVc22ToQbG" data-callback="enableBtn"></div>
             <div>
-                <button class="ds-button" type="submit" value="Submit" style="width:95%;margin:1vh 1vh;" id="buttonRegister" disabled="disabled">Sign Up</button>
+                <button class="ds-button" type="submit" value="Submit" style="width:95%;margin:1vh 1vh;" id="buttonRegister" disabled="disabled"><i class="fa-solid fa-user-plus"></i> Sign Up</button>
             </div>
             <div>
                 <p style="display:block;margin:1vh;text-align:center;">Already have an account?</p>
