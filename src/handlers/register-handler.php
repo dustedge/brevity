@@ -8,6 +8,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $passwordConfirm = trim($_POST['passwordConfirm']);
     $login = htmlspecialchars(trim($_POST['login']));
     $avatar = "/images/avatar-none.png";
+    $description = "";
 
     // Recaptcha check. Ignored if no key is provided
 
@@ -94,12 +95,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // prepare register query
-    $stmt = $pdo->prepare("INSERT INTO users (username, usertag, email, password, useravatar) VALUES (:displayName, :login, :email, :password, :useravatar)");
+    $stmt = $pdo->prepare("INSERT INTO users (username, usertag, email, password, useravatar, userdescription) VALUES (:displayName, :login, :email, :password, :useravatar, :userdescription)");
     $stmt->bindParam(':displayName', $displayName);
     $stmt->bindParam(':login', $login);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':password', $hashedPassword);
     $stmt->bindParam(':useravatar', $avatar);
+    $stmt->bindParam(':userdescription', $description);
 
     try {
         $stmt->execute();
