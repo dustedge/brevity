@@ -385,3 +385,9 @@ a {
     border-color: $contexttextcolor;
     border-style: dashed;
 }
+
+.ds-avatar-upload-button {
+    float:left;
+    position:relative;
+    transform: translate(-3.5vw, 10vh);
+}

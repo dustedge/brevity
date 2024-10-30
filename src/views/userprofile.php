@@ -62,12 +62,12 @@ catch (PDOException $e) {
 
 <?php if($editable): // Add profile edit modal window to html if profile is editable?>
 <div class="ds-modal" id="editProfileWindowModal">
-    <div class="ds-modal-content ds-dashed-border" style="height:70vh;">
+    <div class="ds-modal-content ds-dashed-border">
         <form id="editProfileForm" style="display:flex; flex-direction:column; flex-grow:1; justify-content:space-between;">
             <div class="ds-userprofile-content">
-                <div style="display:inline;">
+                <div style="width:25%;display:inline-flex;float:left;">
                     <img id="editAvatarPreview" class="ds-userprofile-avatar ds-dashed-border" style="position:relative;left:-1vw;" src="<?= $result['useravatar'] ?>">
-                    <label for="avatarUpload" class="ds-button ds-edit-button" style="float:none;position:relative; top: 75%; left: -44%;"><i class="fa-solid fa-upload"></i></label>
+                    <label for="avatarUpload" class="ds-button ds-edit-button ds-avatar-upload-button"><i class="fa-solid fa-upload"></i></label>
                     <input type="file" id="avatarUpload" name="avatarUpload" accept="image/*" style="display:none;" />
                 </div>
                 
