@@ -56,7 +56,11 @@ try {
 
     $request->execute();
     echo json_encode(['success'=> true]);
-    $_SESSION['user_avatar'] = $avatarUrl;
+    
+    if($avatarUrl) {
+        $_SESSION['user_avatar'] = $avatarUrl;
+    }
+    
 } catch (PDOException $e) {
     echo json_encode(['success'=> false,'message'=> 'SQL Error occured:' . $e->getMessage()]);
 }
