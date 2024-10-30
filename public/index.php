@@ -33,4 +33,6 @@ if ($requestUri === "/register") {
   require __DIR__ . "/../src/handlers/post-handler.php";
 } elseif ($requestUri === "/edit-profile" && $_SERVER["REQUEST_METHOD"] === "POST") {
   require __DIR__ . "/../src/handlers/edit-profile-handler.php";
+} elseif ($requestUri === "/edit-post" && $_SERVER["REQUEST_METHOD"] === "POST") {
+  require __DIR__ . "/../src/handlers/edit-post-handler.php";
 }
