@@ -1,6 +1,6 @@
 {
   "name": "brevity",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "BREVITY - an open-source lightweight twitter clone",
   "main": "webpack.config.js",
   "scripts": {
