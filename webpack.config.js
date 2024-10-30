@@ -17,7 +17,7 @@ module.exports = {
             },
         ],
     },
-    mode: 'development', // dev mode or prod mode
+    mode: 'production', // dev mode or prod mode
     devServer: {
         static: './public', // server dir
         devMiddleware: {

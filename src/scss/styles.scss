@@ -223,6 +223,8 @@ a {
 .ds-avatar {
     max-width: $avatarsize;
     max-height: $avatarsize;
+    min-width: $avatarsize;
+    min-height: $avatarsize;
     width: $avatarsize;
     height: $avatarsize;
     border-radius: 50%;
