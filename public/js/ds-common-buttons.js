@@ -70,7 +70,7 @@ if(buttonAddNewPost != null) {
 const postButton = document.getElementById('postButton');
 if(postButton != null) {
     const postWindowModal = document.getElementById('postWindowModal');
-    const closeWindowModal = document.querySelector('.close');
+    const closeWindowModal = document.getElementById('newPostWindowCloseButton');
 
     // Open modal window when "Post" is pressed
     postButton.addEventListener('click', function()
@@ -177,5 +177,93 @@ if (homeButton != null)
 {
     homeButton.addEventListener('click', function() {
         window.location.href="/";
+    });
+}
+
+// Handle post edit buttons
+
+const postEditButtons = document.querySelectorAll(".edit-post-button");
+const postEditWindow = document.getElementById("editPostWindowModal");
+const postEditContent = document.getElementById("editPostContent");
+const postEditSaveButton = document.getElementById("buttonSavePostChanges");
+const postEditWindowCloseButton = document.getElementById("postEditWindowCloseButton");
+const postEditDeleteButton = document.getElementById("buttonDeletePost");
+let currentPostId;
+
+if(postEditButtons.length > 0)
+{
+    postEditButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            currentPostId = button.getAttribute("post-id");
+            const currentPostContent = document.getElementById(`postContent_${currentPostId}`).textContent;
+            postEditContent.value = currentPostContent.trim();
+            postEditWindow.style.display = "block";
+        });
+    });
+
+    postEditWindowCloseButton.addEventListener('click', function () {
+        // Close modal window when close element is pressed
+        postEditWindow.style.display = 'none'; 
+    });
+
+    // Close modal window when clicked outside
+    window.addEventListener('click', function(event) {
+        if(event.target === postEditWindow) {
+            postEditWindow.style.display = 'none';
+        }
+    });
+
+    // Post deletion
+    postEditDeleteButton.addEventListener('click', function () {
+        
+        // Ajax post deletion request
+        fetch('/edit-post', {
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify ({postId: currentPostId, deletePost: true})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success) {
+                // remove post here
+                document.getElementById(`post_${currentPostId}`).style.display = 'none';
+                postEditWindow.style.display = 'none';
+            } else {
+                alert(data.message || 'Error occured while deleting post');
+            }
+        })
+        .catch(error => console.error('Error: ', error));
+    });
+
+    // Post edit save
+    postEditSaveButton.addEventListener('click', function () {
+        const newContent = postEditContent.value.trim();
+        if(!newContent) {
+            alert("Post cannot be empty.");
+            return;
+        }
+
+        // if no changes do nothing
+        if(newContent == document.getElementById(`postContent_${currentPostId}`).textContent.trim())
+        {
+            postEditWindow.style.display = 'none';
+            return;
+        }
+        // Ajax post edit
+        fetch('/edit-post', {
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify ({postId: currentPostId, content: newContent})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success) {
+                document.getElementById(`postContent_${currentPostId}`).innerHTML = newContent.replace(/\n/g, '<br>');
+                postEditWindow.style.display = 'none';
+            } else {
+                alert(data.message || 'Error occured while editing post');
+            }
+        })
+        .catch(error => console.error('Error: ', error));
     });
 }
