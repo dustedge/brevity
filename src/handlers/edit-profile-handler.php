@@ -56,7 +56,7 @@ try {
 
     $request->execute();
     echo json_encode(['success'=> true]);
-    
+    $_SESSION['user_name'] = htmlspecialchars($newProfileName);
     if($avatarUrl) {
         $_SESSION['user_avatar'] = $avatarUrl;
     }
