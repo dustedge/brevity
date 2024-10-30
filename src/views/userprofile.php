@@ -126,7 +126,7 @@ catch (PDOException $e) {
     <?php endif; ?>
     <br />
     <p id="<?= "postContent_" . $post['id'] ?>">
-    <?= nl2br(htmlspecialchars($post['content'])) ?>
+    <?= nl2br($post['content']) ?>
     </p>
   </div>
 </div>

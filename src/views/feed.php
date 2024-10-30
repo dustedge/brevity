@@ -43,7 +43,7 @@ catch (PDOException $e) {
     <?php endif; ?>
     <br />
     <p style="opacity: 0;animation-delay: <?=$counter * 0.1?>s;" id="<?= "postContent_" . $post['post_id'] ?>">
-    <?= nl2br(htmlspecialchars($post['content'])) ?>
+    <?= nl2br($post['content']) ?>
     </p>
   </div>
 </div>
