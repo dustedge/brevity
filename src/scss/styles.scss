@@ -206,6 +206,7 @@ a {
 }
 
 .ds-tweet-header {
+    width: 100%;
     font-family: $importantfont;
 }
 
@@ -216,6 +217,7 @@ a {
 
 .ds-tweet-header p {
     line-height: 2;
+    max-width: 90%;
 }
 
 .ds-avatar {
@@ -371,4 +373,7 @@ a {
     width: fit-content;
     height: fit-content;
     float: right;
+    border-width: 3px;
+    border-color: $contexttextcolor;
+    border-style: dashed;
 }
