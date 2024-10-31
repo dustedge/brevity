@@ -16,8 +16,10 @@ A lightweight open-source twitter clone!
 * [x] User Avatar Upload
 * [x] Build and Run Guide
 
-### Extra Features
+### Extra Features TO-DO
 
+* [ ] Handling Hash Tags
+* [ ] Proper Emoji Menu
 * [ ] Embed Media to Tweets
 * [ ] Like Tweets
 
