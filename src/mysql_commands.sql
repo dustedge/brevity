@@ -1,5 +1,7 @@
-CREATE DATABASE bravity_db;
-USE bravity_db;
+CREATE USER 'superuser'@'localhost' IDENTIFIED BY 'brevityadmin321'; /* TEMPLATE */
+
+CREATE DATABASE brevity_db;
+USE brevity_db;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -20,3 +22,6 @@ CREATE TABLE posts (
     edited_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+GRANT ALL PRIVILEGES ON brevity_db.* TO 'superuser'@'localhost'; /* TEMPLATE */
+FLUSH PRIVILEGES;

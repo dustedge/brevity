@@ -2,9 +2,9 @@
 
 // Database connection
 $host = 'localhost';
-$db = 'bravity_db';         // Template
-$user = 'admin';            // Template
-$pass = 'bravityadmin321';  // Template
+$db = 'brevity_db';         // Template
+$user = 'superuser';            // Template
+$pass = 'brevityadmin321';  // Template
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
