@@ -3,7 +3,7 @@
 <br/> 
 A lightweight open-source twitter clone!
 
-## Core Project Roadmap:
+# Core Project Roadmap:
 
 * [x] Prototypes
 * [x] Main Page
